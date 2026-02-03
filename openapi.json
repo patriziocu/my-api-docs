@@ -1,0 +1,47 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "My First API",
+    "version": "1.0.0",
+    "description": "This is a simple test to see how Mintlify generates code."
+  },
+  "servers": [
+    {
+      "url": "https://api.example.com/v1",
+      "description": "Main Production Server"
+    }
+  ],
+  "paths": {
+    "/user": {
+      "get": {
+        "summary": "Get User Profile",
+        "description": "This tool retrieves the name and email of a specific user.",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "description": "The unique ID of the user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success! Here is the data.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "id": "123",
+                  "name": "Jane Doe",
+                  "email": "jane@example.com"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
