@@ -1,16 +1,22 @@
 {
+  "$schema": "https://mintlify.com/docs.json",
   "name": "My API Docs",
   "theme": "mint",
-  "navigation": {
-    "sidebar": [
-      {
-        "group": "Getting Started",
-        "pages": ["introduction"]
-      },
-      {
-        "group": "API Reference",
-        "pages": ["openapi.json"]
-      }
-    ]
-  }
+  "colors": {
+    "primary": "#16a34a"
+  },
+  "navigation": [
+    {
+      "group": "Getting Started",
+      "pages": [
+        "introduction"
+      ]
+    },
+    {
+      "group": "API Reference",
+      "pages": [
+        "openapi.json"
+      ]
+    }
+  ]
 }
