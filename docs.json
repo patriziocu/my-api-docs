@@ -1,21 +1,16 @@
 {
   "name": "My API Docs",
+  "theme": "mint",
   "navigation": {
-    "tabs": [
+    "sidebar": [
       {
-        "name": "API Reference",
-        "url": "api-reference"
+        "group": "Getting Started",
+        "pages": ["introduction"]
+      },
+      {
+        "group": "API Reference",
+        "pages": ["openapi.json"]
       }
-    ],
-    "sidebar": {
-      "api-reference": [
-        {
-          "group": "Endpoints",
-          "pages": [
-            "openapi.json"
-          ]
-        }
-      ]
-    }
+    ]
   }
 }
