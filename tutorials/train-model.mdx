@@ -1,0 +1,64 @@
+---
+title: "Train K-Means Model"
+description: "Example script for clustering MNIST data before sending to API"
+---
+
+## Overview
+
+This tutorial demonstrates how to load the MNIST dataset (handwritten digits), perform unsupervised clustering using K-Means, and prepare the model centroids for the API.
+
+### Prerequisites
+
+You will need the following libraries installed:
+
+```bash
+pip install numpy scikit-learn pandas
+
+
+import numpy as np
+from sklearn.datasets import fetch_openml
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split
+
+print("1. Loading MNIST dataset... (this may take a moment)")
+# Load data from [https://www.openml.org/d/554](https://www.openml.org/d/554)
+# X contains the pixel data (784 dimensions per image)
+X, y = fetch_openml('mnist_784', version=1, return_X_y=True, as_frame=False)
+
+# Use a smaller subset for faster testing (optional)
+X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=10000, random_state=42)
+
+print(f"   Loaded {X_train.shape[0]} images.")
+
+# 2. Preprocessing
+print("2. Scaling data...")
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X_train)
+
+# 3. Train K-Means
+# We expect 10 clusters (digits 0-9)
+k = 10
+print(f"3. Training K-Means with {k} clusters...")
+kmeans = KMeans(n_clusters=k, random_state=42, n_init=10)
+kmeans.fit(X_scaled)
+
+# 4. Extract Centroids
+# These centroids represent the "average" digit for each cluster
+centroids = kmeans.cluster_centers_
+
+print("   Training complete!")
+print(f"   Cluster centers shape: {centroids.shape}")
+
+# ---------------------------------------------------------
+# OPTIONAL: Send these centroids to your API
+# ---------------------------------------------------------
+# import requests
+# 
+# payload = {
+#     "model_name": "mnist_kmeans_v1",
+#     "centroids": centroids.tolist()
+# }
+# 
+# # response = requests.post("[https://api.example.com/v1/models/upload](https://api.example.com/v1/models/upload)", json=payload)
+# # print("API Response:", response.json())
