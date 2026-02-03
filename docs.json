@@ -5,18 +5,20 @@
   "colors": {
     "primary": "#16a34a"
   },
-  "navigation": [
-    {
-      "group": "Getting Started",
-      "pages": [
-        "introduction"
-      ]
-    },
-    {
-      "group": "API Reference",
-      "pages": [
-        "openapi.json"
-      ]
-    }
-  ]
+  "navigation": {
+    "groups": [
+      {
+        "group": "Getting Started",
+        "pages": [
+          "introduction"
+        ]
+      },
+      {
+        "group": "API Reference",
+        "pages": [
+          "openapi.json"
+        ]
+      }
+    ]
+  }
 }
