@@ -1,1 +1,15 @@
-docs.json
+{
+  "name": "My API Docs",
+  "navigation": [
+    {
+      "group": "Getting Started",
+      "pages": [
+        "introduction"
+      ]
+    },
+    {
+      "group": "API Reference",
+      "openapi": "openapi.json"
+    }
+  ]
+}
