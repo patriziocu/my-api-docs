@@ -18,6 +18,12 @@
         "pages": [
           "openapi.json"
         ]
+      },
+      {
+        "group": "Tutorials",
+        "pages": [
+          "tutorials/train-model"
+        ]
       }
     ]
   }
