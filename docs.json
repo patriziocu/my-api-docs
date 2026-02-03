@@ -22,7 +22,9 @@
       {
         "group": "Tutorials",
         "pages": [
-          "tutorials/train-model"
+          "tutorials/train-model",
+          "tutorials/batch-inference"
+          
         ]
       }
     ]
