@@ -1,21 +1,21 @@
 {
   "name": "My API Docs",
-  "theme": "mint",
-  "colors": {
-    "primary": "#16a34a",
-    "light": "#4ade80",
-    "dark": "#166534"
-  },
-  "navigation": [
-    {
-      "group": "Getting Started",
-      "pages": [
-        "introduction"
+  "navigation": {
+    "tabs": [
+      {
+        "name": "API Reference",
+        "url": "api-reference"
+      }
+    ],
+    "sidebar": {
+      "api-reference": [
+        {
+          "group": "Endpoints",
+          "pages": [
+            "openapi.json"
+          ]
+        }
       ]
-    },
-    {
-      "group": "API Reference",
-      "openapi": "openapi.json"
     }
-  ]
+  }
 }
